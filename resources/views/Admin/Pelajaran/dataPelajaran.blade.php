@@ -252,7 +252,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/pelajaran/create',
-                type: 'get',
+                type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -351,7 +351,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/pelajaran/' + id + '/update',
-                type: 'get',
+                type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

@@ -451,7 +451,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/jadwal/'+ id +'/update',
-                type: 'get',
+                type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -693,7 +693,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/jadwal/create',
-                type: 'get',
+                type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

@@ -6,7 +6,7 @@
         <div class="nk-nav-scroll">
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="/home" aria-expanded="false">
+                    <a href="/Dashboard Admin" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Dashboard</span>
                     </a>
                 </li>

@@ -11,7 +11,7 @@ class guru extends Model
 
     protected $table = 'Tb_Guru';
     protected $primaryKey = 'id_guru';
-    protected $fillable = ['id_guru','nip','nama_lengkap','tempat_lahir','tanggal_lahir','jenis_kelamin','alamat','no_hp','email','foto'];
+    protected $fillable = ['id_guru','nip','nama_lengkap','tempat_lahir','tanggal_lahir','jenis_kelamin','alamat','no_hp','email','foto','username'];
 
     public function kelas(){
 
@@ -21,5 +21,10 @@ class guru extends Model
     public function mengajar(){
 
         return $this->hasMany(mengajar::class);
+    }
+
+    public function user(){
+
+        return $this->belongsTo(User::class,'username','id_user');
     }
 }

@@ -262,7 +262,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/mengajar/create',
-                type: 'get',
+                type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -356,7 +356,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/mengajar/' + id + '/update',
-                type: 'get',
+                type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

@@ -24,8 +24,10 @@ class Guru extends Migration
             $table->bigInteger('no_hp');
             $table->string('email');
             $table->string('foto')->nullable();
+            $table->foreignId('username');
             $table->timestamps();
 
+            $table->foreign('username')->references('id_user')->on('Tb_User');
             $table->engine ='InnoDB';
         });
     }

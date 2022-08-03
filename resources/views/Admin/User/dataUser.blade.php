@@ -1,17 +1,14 @@
-@extends('layouts.main')
-
-@section('title', 'Dashboard Admin')
-
-@include('layouts.header')
-
-@include('layouts.sidebar')
+@extends('Admin.layouts.main')
+@section('title', 'Data User')
+@include('Admin.layouts.header')
+@include('Admin.layouts.sidebar')
 
 
 @section('content')
 
     <!--**********************************
-                                            Content body start
-                                        ***********************************-->
+                                                Content body start
+                                            ***********************************-->
     <div class="content-body">
 
         <div class="container-fluid mt-3">
@@ -33,39 +30,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-
                                 <div class="row">
-                                    <div class="form-group col-md-2">
-                                        <select id="inputState" class="form-control">
-                                            <option selected="selected">Pilih Kelas</option>
-                                            <option>Kelas 1</option>
-                                            <option>Kelas 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <select id="inputState" class="form-control">
-                                            <option selected="selected">Pilih Semester</option>
-                                            <option>Kelas 1</option>
-                                            <option>Kelas 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <select id="inputState" class="form-control">
-                                            <option selected="selected">Pilih Periode</option>
-                                            <option>Kelas 1</option>
-                                            <option>Kelas 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-1">
-                                        <button type="button" class="btn btn-primary">Filter</button>
-                                    </div>
-                                    <div class="form-group col-md-5">
-                                        <button type="button" class="btn btn-primary">Filter dan Cetak Data</button>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#modalTambah">Cetak Semua Data</button>
-                                    </div>
                                     <div class="form-group col-md-10">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#modalTambah">Tambah
@@ -79,7 +44,6 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Username</th>
-                                            <th>Password</th>
                                             <th>Level</th>
                                             <th>Action</th>
                                         </tr>
@@ -89,7 +53,6 @@
                                             <td>1</td>
                                             <td>Anhar</td>
                                             <td>anhar3004</td>
-                                            <td>********</td>
                                             <td>Admin</td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -98,7 +61,8 @@
                                                             <i class="icon-pencil text-white"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="" onclick="return confirm('apakah yakin akan di hapus ?')">
+                                                    <a href=""
+                                                        onclick="return confirm('apakah yakin akan di hapus ?')">
                                                         <span class="badge badge-pill gradient-2">
                                                             <i class="icon-pencil text-white"></i>
                                                         </span>
@@ -110,7 +74,6 @@
                                             <td>1</td>
                                             <td>Anhar</td>
                                             <td>anhar3004</td>
-                                            <td>********</td>
                                             <td>Admin</td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -119,7 +82,8 @@
                                                             <i class="icon-pencil text-white"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="" onclick="return confirm('apakah yakin akan di hapus ?')">
+                                                    <a href=""
+                                                        onclick="return confirm('apakah yakin akan di hapus ?')">
                                                         <span class="badge badge-pill gradient-2">
                                                             <i class="icon-pencil text-white"></i>
                                                         </span>
@@ -131,7 +95,6 @@
                                             <td>1</td>
                                             <td>Anhar</td>
                                             <td>anhar3004</td>
-                                            <td>********</td>
                                             <td>Admin</td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -140,7 +103,8 @@
                                                             <i class="icon-pencil text-white"></i>
                                                         </span>
                                                     </a>
-                                                    <a href="" onclick="return confirm('apakah yakin akan di hapus ?')">
+                                                    <a href=""
+                                                        onclick="return confirm('apakah yakin akan di hapus ?')">
                                                         <span class="badge badge-pill gradient-2">
                                                             <i class="icon-pencil text-white"></i>
                                                         </span>
@@ -148,6 +112,35 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="form-group col-md-12">
+                                    <button type="button" class="btn btn-primary" href="" onclick="formTambah()">Tambah
+                                        Guru</button>
+                                </div>
+                                <table class="table table-striped table-bordered table-hover text-center" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>NIP</th>
+                                            <th>Nama</th>
+                                            <th>username</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -171,7 +164,7 @@
                                 <div class="modal-body">
                                     <div class="basic-form">
                                         <div class="form-row">
-                                            <div class="form-group col-md-12">
+                                            {{-- <div class="form-group col-md-12">
                                                 <label>Nama</label>
                                                 <input type="text" class="form-control" placeholder="">
                                             </div>
@@ -182,7 +175,7 @@
                                             <div class="form-group col-md-12">
                                                 <label>Password</label>
                                                 <input type="password" class="form-control" placeholder="">
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group col-md-12">
                                                 <label>Level</label>
                                                 <select id="inputState" class="form-control">
@@ -194,12 +187,12 @@
                                                     <option>Kepala Sekolah</option>
                                                 </select>
                                             </div>
+                                        </div>
                                     </div>
-                                </div>
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Tambah Data</button>
+                                <button type="button" class="btn btn-primary">Pilih Level</button>
                             </div>
                         </div>
                     </div>
@@ -245,8 +238,8 @@
                                                     <option>Kepala Sekolah</option>
                                                 </select>
                                             </div>
+                                        </div>
                                     </div>
-                                </div>
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -260,8 +253,85 @@
     </div>
 
     <!--**********************************
-                                            Content body end
-                                        ***********************************-->
+                                                Content body end
+                                            ***********************************-->
 
+    <script type="text/javascript">
+        function dataGuru() {
+            $('#table').dataGuru({
 
+                "ajax": {
+                    "url": "http://localhost:8000/guru/dataGuru",
+                    "dataSrc": ""
+                },
+                "columns": [{
+                        data: "id_guru",
+                        sortable: false,
+                        order: [
+                            ["id_guru", 'asc']
+                        ],
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        data: "nip",
+                        {{-- order: [
+                                            [null, 'asc']
+                                        ] --}}
+                    },
+                    {
+                        data: "nama_lengkap"
+                    },
+                    {
+                        data: "no_hp"
+                    },
+                    {
+                        data: "email"
+                    },
+                    {
+                        data: "id_guru",
+                        mRender: function(data) {
+                            return `<div>
+                                                     <a href="" data-toggle="modal" onclick="detail(${data})">
+                                                         <span class="badge badge-pill gradient-1">
+                                                         <i class="icon-eye text-white"></i>
+                                                         </span>
+                                                     </a>
+                                                  </div>`;
+                        }
+                    },
+                    {
+                        data: "id_guru",
+                        mRender: function(data) {
+                            return `<div>
+                                                     <a href="" data-toggle="modal" onclick="print(${data})">
+                                                        <span class="badge badge-pill gradient-4">
+                                                            <i class="icon-printer text-white"></i>
+                                                        </span>
+                                                    </a>
+                                                  </div>`;
+                        }
+                    },
+                    {
+                        data: "id_guru",
+                        mRender: function(data) {
+                            return `<div>
+                                                    <a href="" data-toggle="modal" onclick="formEdit(${data})">
+                                                        <span class="badge badge-pill gradient-3">
+                                                        <i class="icon-pencil text-white"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a onclick="hapus(${data})">
+                                                        <span class="badge badge-pill gradient-2">
+                                                        <i class="icon-trash text-white"></i>
+                                                        </span>
+                                                    </a>
+                                                 </div>`;
+                        }
+                    }
+                ]
+            })
+        }
+    </script>
 @endsection

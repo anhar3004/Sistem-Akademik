@@ -37,15 +37,6 @@
                                     <button type="button" class="btn  gradient-9" onclick="formTambah()">Tambah
                                         Periode</button>
                                 </div>
-                                @if (session('sukses'))
-                                    <div class="form-group col-md-12">
-                                        <div class="card-content">
-                                            <div class="alert  gradient-1" role="alert">
-                                                {{ session('sukses') }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
                                 <table
                                     class="table table-striped table-bordered table-hover text-center" id="table">
                                     <thead>
@@ -119,7 +110,9 @@
                                     <button type="button" class="close" data-dismiss="modal" onclick="closeModal()"><span>&times;</span>
                                     </button>
                                 </div>
+
                                 <form  method="post" class="form-horizontal">
+                                    @csrf
                                     <div class="modal-body">
                                         <div class="row ">
                                             <div class="col-md-5 mx-auto">
@@ -225,7 +218,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/periode/create',
-                type: 'get',
+                type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -312,7 +305,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/periode/'+ id +'/update',
-                type: 'get',
+                type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -385,7 +378,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         url: 'http://localhost:8000/periode/' + id + '/delete',
-                        type: 'GET',
+                        type: 'get',
                         success: function(data) {
                             Swal.fire(
                                 'Delete!',

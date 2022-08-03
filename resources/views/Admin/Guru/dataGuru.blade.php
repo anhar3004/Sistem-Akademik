@@ -10,8 +10,8 @@
 @section('content')
 
     <!--**********************************
-                                                 Content body start
-                                        ***********************************-->
+                                                             Content body start
+                                                    ***********************************-->
     <div class="content-body">
         <div class="container-fluid mt-3">
             <div id="content">
@@ -34,15 +34,17 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <div class="form-group col-md-12">
-                                        <button type="button" class="btn btn-primary" href="" onclick="formTambah()">Tambah
+                                        <button type="button" class="btn btn-primary" href=""
+                                            onclick="formTambah()">Tambah
                                             Guru</button>
                                     </div>
-                                    <table class="table table-striped table-bordered table-hover text-center" id="table">
+                                    <table class="table table-striped table-bordered table-hover text-center"
+                                        id="table">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
                                                 <th>NIP</th>
-                                                <th>Nama</th>
+                                                <th>Nama Lengkap</th>
                                                 <th>No Hp</th>
                                                 <th>Email</th>
                                                 <th>Detail</th>
@@ -63,10 +65,9 @@
                 <div class="col-md-12 ">
                     <div class="card">
                         <div class="card-body ">
-                            <h1 class="card-title">Tambah Guru</h1>
-                            <br>
+                            <h1 class="card-title">Tambah Siswa</h1>
                             <div class="basic-form">
-                                <form action="/guru/tambah" method="post" class="form-horizontal">
+                                <form action="/guru/tambah" method="post" class="form-horizontal" id="form">
                                     {{ csrf_field() }}
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-form-label" for="val-username">NIP
@@ -80,16 +81,32 @@
                                         <label class="col-lg-4 col-form-label" for="val-email">Nama Lengkap
                                         </label>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="val-email" name="nama_lengkap"
-                                                placeholder="">
+                                            <input type="text" class="form-control" id="val_text" name="nama_lengkap"
+                                                placeholder="" onkeyup="Kapitalis()" onchange="Username()">
                                         </div>
                                     </div>
+                                    {{-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-email">Nama Belakang
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val_text" name="nama_belakang"
+                                                placeholder="" onkeyup="Kapitalis()" on>
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-email">Username
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-email" name="username"
+                                                placeholder="" readonly>
+                                        </div>
+                                    </div> --}}
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-form-label" for="val-password">Tempat Lahir
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="text" class="form-control" id="val-password" name="tempat_lahir"
-                                                placeholder="">
+                                                placeholder="" onkeyup="Kapitalis()">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -126,7 +143,7 @@
                                         <label class="col-lg-4 col-form-label" for="val-suggestions">Alamat
                                         </label>
                                         <div class="col-lg-6">
-                                            <textarea class="form-control" id="val-suggestions" name="alamat" rows="5" placeholder=""></textarea>
+                                            <textarea class="form-control" id="val-suggestions" name="alamat" rows="5" placeholder="" onkeyup="Kapitalis()"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -142,7 +159,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="email" class="form-control" id="val-confirm-password"
-                                                name="email" placeholder="">
+                                                name="email" placeholder="" onkeyup="Kapitalis()">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -150,7 +167,8 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="foto" value="">
+                                                <input type="file" class="custom-file-input" name="foto"
+                                                    value="">
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
                                         </div>
@@ -192,8 +210,8 @@
     </div>
 
     <!--**********************************
-                                         Content body end
-                                        ***********************************-->
+                                                     Content body end
+                                                    ***********************************-->
     <script type="text/javascript">
         $(document).ready(function() {
             event.preventDefault();
@@ -201,6 +219,35 @@
             $('#detailGuru').hide();
             dataTable();
         });
+
+        function Username() {
+
+            var nama_lengkap = $('[name=nama_lengkap]').val();
+            var random = Math.floor(Math.random() * 1000);
+            var username = nama_lengkap.substring(0, 5) + random;
+
+
+        }
+
+        function Kapitalis() {
+
+            var nama_lengkap = $('[name=nama_lengkap]').val();
+            var tempat_lahir = $('[name=tempat_lahir]').val();
+            var alamat = $('[name=alamat]').val();
+            var email = $('[name=email]').val();
+
+            $('[name=nama_lengkap]').val(nama_lengkap.split(" ") // Memenggal nama menggunakan spasi
+                .map(nama =>
+                    nama.charAt(0).toUpperCase() +
+                    nama.slice(1)) // Ganti huruf besar kata-kata pertama
+                .join(" "));
+            $('[name=tempat_lahir]').val(tempat_lahir.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=alamat]').val(alamat.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=email]').val(email.replace(/^\w/, (c) => c.toUpperCase()));
+
+
+
+        }
 
         function dataTable() {
             $('#table').DataTable({
@@ -283,13 +330,15 @@
             $('#content').hide();
             $('#formTambah').show();
             $('#detailGuru').hide();
-            $('#formTambah').find('.card-title').contents().last()[0].textContent = 'Tambah Data Siswa';
+            $('#formTambah').find('.card-title').contents().last()[0].textContent = 'Tambah Data Guru';
             $('#formTambah').find('#submit').attr('onclick', 'create()').contents().last()[0].textContent = 'Submit';
         }
 
         function back() {
             $('[name=nip]').val("");
-            $('[name=nama_lengkap]').val("");
+            $('[name=nama_depan]').val("");
+            $('[name=nama_belakang]').val("");
+            $('[name=username]').val("");
             $('[name=tempat_lahir]').val("");
             $('[name=tanggal_lahir]').val("");
             $('[name=jens_kelamin]').val("");
@@ -307,6 +356,8 @@
 
             var nip = $('[name=nip]').val();
             var nama_lengkap = $('[name=nama_lengkap]').val();
+
+            var username = nama_lengkap.split(' ', 1)+ Math.floor(Math.random() * 1000);
             var tempat_lahir = $('[name=tempat_lahir]').val();
             var tanggal_lahir = $('[name=tanggal_lahir]').val();
             var jenis_kelamin = $('[name=jenis_kelamin]:checked').val();
@@ -314,10 +365,9 @@
             var no_hp = $('[name=no_hp]').val();
             var email = $('[name=email]').val();
             var foto = $('[name=foto]').val();
-
             $.ajax({
                 url: 'http://localhost:8000/guru/create',
-                type: 'get',
+                type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -325,6 +375,7 @@
 
                     nip: nip,
                     nama_lengkap: nama_lengkap,
+                    username: username,
                     tempat_lahir: tempat_lahir,
                     tanggal_lahir: tanggal_lahir,
                     jenis_kelamin: jenis_kelamin,
@@ -397,6 +448,7 @@
                         id_guru = data[key].id_guru;
                         nip = data[key].nip;
                         nama_lengkap = data[key].nama_lengkap;
+                        username = data[key].username;
                         tempat_lahir = data[key].tempat_lahir;
                         tanggal_lahir = data[key].tanggal_lahir;
                         jenis_kelamin = data[key].jenis_kelamin;
@@ -407,6 +459,7 @@
 
                         $('[name=nip]').val(nip);
                         $('[name=nama_lengkap]').val(nama_lengkap);
+                        $('[name=username]').val(username);
                         $('[name=tempat_lahir]').val(tempat_lahir);
                         $('[name=tanggal_lahir]').val(tanggal_lahir);
 
@@ -441,7 +494,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/guru/' + id + '/update',
-                type: 'get',
+                type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

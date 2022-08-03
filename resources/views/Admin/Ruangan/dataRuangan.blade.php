@@ -212,7 +212,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/ruangan/create',
-                type: 'get',
+                type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -299,7 +299,7 @@
 
             $.ajax({
                 url: 'http://localhost:8000/ruangan/' + id + '/update',
-                type: 'get',
+                type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

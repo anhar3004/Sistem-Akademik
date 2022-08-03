@@ -2,93 +2,142 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\periodeController;
-use App\Http\Controllers\ruanganController;
-use App\Http\Controllers\kelasController;
-use App\Http\Controllers\siswaController;
 use App\Http\Controllers\guruController;
-use App\Http\Controllers\pelajaranController;
-use App\Http\Controllers\mengajarController;
-use App\Http\Controllers\jadwalController;
-use App\Http\Controllers\nilaiController;
-use App\Http\Controllers\raporController;
-use App\Http\Controllers\perkembanganController;
-use App\Http\Controllers\prestasiController;
-use App\Http\Controllers\userController;
+use App\Http\Controllers\dataPeriodeController;
+use App\Http\Controllers\dataRuanganController;
+use App\Http\Controllers\dataKelasController;
+use App\Http\Controllers\dataSiswaController;
+use App\Http\Controllers\dataGuruController;
+use App\Http\Controllers\dataPelajaranController;
+use App\Http\Controllers\dataMengajarController;
+use App\Http\Controllers\dataJadwalController;
+use App\Http\Controllers\dataNilaiController;
+use App\Http\Controllers\dataRaporController;
+use App\Http\Controllers\dataPerkembanganController;
+use App\Http\Controllers\dataPrestasiController;
+use App\Http\Controllers\dataUserController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\biodataController;
+use App\Http\Controllers\dataJadwalMengajarController;
+use App\Http\Controllers\dataMengajarGuruController;
 
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('Login.Login');
 // });
 
-Route::get('/', [adminController::class, 'index']);
-Route::get('/home', [adminController::class, 'index']);
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::get('/', [AuthController::class, 'index'])->name('login');
+// Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/cekLogin', [AuthController::class, 'proses_login']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/periode', [periodeController::class, 'index']);
-Route::get('/periode/dataTable', [periodeController::class, 'dataTable']);
-Route::get('/periode/create', [periodeController::class, 'create']);
-Route::get('/periode/{id}/edit', [periodeController::class, 'edit']);
-Route::get('/periode/{id}/delete', [periodeController::class, 'delete']);
-Route::get('/periode/{id}/update', [periodeController::class, 'update']);
+// Route::get('login', 'App\Http\Controllers\AuthController@index')->name('login');
+// // Route::get('register', 'App\Http\Controllers\AuthController@register')->name('register');
+// Route::post('proses_login', 'App\Http\Controllers\AuthController@proses_login')->name('proses_login');
+// Route::get('logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 
-Route::get('/ruangan', [ruanganController::class, 'index']);
-Route::get('/ruangan/dataTable', [ruanganController::class, 'dataTable']);
-Route::get('/ruangan/create', [ruanganController::class, 'create']);
-Route::get('/ruangan/{id}/edit', [ruanganController::class, 'edit']);
-Route::get('/ruangan/{id}/update', [ruanganController::class, 'update']);
-Route::get('/ruangan/{id}/delete', [ruanganController::class, 'delete']);
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['cek_login:Admin']], function () {
 
-Route::get('/kelas', [kelasController::class, 'index']);
-Route::get('/kelas/dataTable', [kelasController::class, 'dataTable']);
-Route::get('/kelas/create', [kelasController::class, 'create']);
-Route::get('/kelas/{id}/delete', [kelasController::class, 'delete']);
-Route::get('/kelas/{id}/edit', [kelasController::class, 'edit']);
-Route::get('/kelas/{id}/update', [kelasController::class, 'update']);
-Route::get('/kelas/{id}/daftarSiswa', [kelasController::class, 'daftarSiswa']);
+        Route::get('/DashboardAdmin', [adminController::class, 'index'])->name('dashboard');
 
-Route::get('/siswa', [siswaController::class, 'index']);
-Route::get('/siswa/dataTable', [siswaController::class, 'dataTable']);
-Route::get('/siswa/create', [siswaController::class, 'create']);
-Route::get('/siswa/{id}/edit', [siswaController::class, 'edit']);
-Route::get('/siswa/{id}/update', [siswaController::class, 'update']);
-Route::get('/siswa/{id}/delete', [siswaController::class, 'delete']);
-Route::get('/siswa/{id}/detail', [siswaController::class, 'detail']);
+        Route::get('/periode', [dataPeriodeController::class, 'index']);
+        Route::get('/periode/dataTable', [dataPeriodeController::class, 'dataTable']);
+        Route::post('/periode/create', [dataPeriodeController::class, 'create']);
+        Route::get('/periode/{id}/edit', [dataPeriodeController::class, 'edit']);
+        Route::get('/periode/{id}/delete', [dataPeriodeController::class, 'delete']);
+        Route::put('/periode/{id}/update', [dataPeriodeController::class, 'update']);
 
-Route::get('/guru', [guruController::class, 'index']);
-Route::get('/guru/dataTable', [guruController::class, 'dataTable']);
-Route::get('/guru/create', [guruController::class, 'create']);
-Route::get('/guru/{id}/edit', [guruController::class, 'edit']);
-Route::get('/guru/{id}/update', [guruController::class, 'update']);
-Route::get('/guru/{id}/delete', [guruController::class, 'delete']);
-Route::get('/guru/{id}/detail', [guruController::class, 'detail']);
+        Route::get('/ruangan', [dataRuanganController::class, 'index']);
+        Route::get('/ruangan/dataTable', [dataRuanganController::class, 'dataTable']);
+        Route::post('/ruangan/create', [dataRuanganController::class, 'create']);
+        Route::get('/ruangan/{id}/edit', [dataRuanganController::class, 'edit']);
+        Route::put('/ruangan/{id}/update', [dataRuanganController::class, 'update']);
+        Route::get('/ruangan/{id}/delete', [dataRuanganController::class, 'delete']);
 
-Route::get('/pelajaran', [pelajaranController::class, 'index']);
-Route::get('/pelajaran/dataTable', [pelajaranController::class, 'dataTable']);
-Route::get('/pelajaran/noUrut', [pelajaranController::class, 'noUrut']);
-Route::get('/pelajaran/create', [pelajaranController::class, 'create']);
-Route::get('/pelajaran/{id}/edit', [pelajaranController::class, 'edit']);
-Route::get('/pelajaran/{id_mapel}/update', [pelajaranController::class, 'update']);
-Route::get('/pelajaran/{id_mapel}/delete', [pelajaranController::class, 'delete']);
+        Route::get('/kelas', [dataKelasController::class, 'index']);
+        Route::get('/kelas/dataTable', [dataKelasController::class, 'dataTable']);
+        Route::post('/kelas/create', [dataKelasController::class, 'create']);
+        Route::get('/kelas/{id}/delete', [dataKelasController::class, 'delete']);
+        Route::get('/kelas/{id}/edit', [dataKelasController::class, 'edit']);
+        Route::put('/kelas/{id}/update', [dataKelasController::class, 'update']);
+        Route::get('/kelas/{id}/daftarSiswa', [dataKelasController::class, 'daftarSiswa']);
 
-Route::get('/mengajar', [mengajarController::class, 'index']);
-Route::get('/mengajar/dataTable', [mengajarController::class, 'dataTable']);
-Route::get('/mengajar/create', [mengajarController::class, 'create']);
-Route::get('/mengajar/{id}/edit', [mengajarController::class, 'edit']);
-Route::get('/mengajar/{id}/update', [mengajarController::class, 'update']);
-Route::get('/mengajar/{id}/delete', [mengajarController::class, 'delete']);
-
-Route::get('/jadwal', [jadwalController::class, 'index']);
-Route::get('/jadwal/daftar', [jadwalController::class, 'daftar']);
-Route::get('/jadwal/{id}/dataPelajaran', [jadwalController::class, 'dataPelajaran']);
-Route::get('/jadwal/{id}/dataPengajar', [jadwalController::class, 'dataPengajar']);
-Route::get('/jadwal/create', [jadwalController::class, 'create']);
-Route::get('/jadwal/{id}/ubahJadwal', [jadwalController::class, 'ubahJadwal']);
-Route::get('/jadwal/{id}/update', [jadwalController::class, 'update']);
-Route::get('/jadwal/{id}/delete', [jadwalController::class, 'delete']);
-
-Route::get('/nilai', [nilaiController::class, 'index']);
-Route::get('/rapor', [raporController::class, 'index']);
-Route::get('/perkembangan', [perkembanganController::class, 'index']);
-Route::get('/prestasi', [prestasiController::class, 'index']);
-Route::get('/user', [userController::class, 'index']);
+        Route::get('/siswa', [dataSiswaController::class, 'index']);
+        Route::get('/siswa/dataTable', [dataSiswaController::class, 'dataTable']);
+        Route::post('/siswa/create', [dataSiswaController::class, 'create']);
+        Route::get('/siswa/{id}/edit', [dataSiswaController::class, 'edit']);
+        Route::put('/siswa/{id}/update', [dataSiswaController::class, 'update']);
+        Route::get('/siswa/{id}/delete', [dataSiswaController::class, 'delete']);
+        Route::get('/siswa/{id}/detail', [dataSiswaController::class, 'detail']);
 
 
+        Route::get('/guru', [dataGuruController::class, 'index']);
+        Route::get('/guru/dataTable', [dataGuruController::class, 'dataTable']);
+        Route::post('/guru/create', [dataGuruController::class, 'create']);
+        Route::get('/guru/{id}/edit', [dataGuruController::class, 'edit']);
+        Route::put('/guru/{id}/update', [dataGuruController::class, 'update']);
+        Route::get('/guru/{id}/delete', [dataGuruController::class, 'delete']);
+        Route::get('/guru/{id}/detail', [dataGuruController::class, 'detail']);
+
+        Route::get('/pelajaran', [dataPelajaranController::class, 'index']);
+        Route::get('/pelajaran/dataTable', [dataPelajaranController::class, 'dataTable']);
+        Route::get('/pelajaran/noUrut', [dataPelajaranController::class, 'noUrut']);
+        Route::post('/pelajaran/create', [dataPelajaranController::class, 'create']);
+        Route::get('/pelajaran/{id}/edit', [dataPelajaranController::class, 'edit']);
+        Route::put('/pelajaran/{id_mapel}/update', [dataPelajaranController::class, 'update']);
+        Route::get('/pelajaran/{id_mapel}/delete', [dataPelajaranController::class, 'delete']);
+
+        Route::get('/mengajar', [dataMengajarController::class, 'index']);
+        Route::get('/mengajar/dataTable', [dataMengajarController::class, 'dataTable']);
+        Route::post('/mengajar/create', [dataMengajarController::class, 'create']);
+        Route::get('/mengajar/{id}/edit', [dataMengajarController::class, 'edit']);
+        Route::put('/mengajar/{id}/update', [dataMengajarController::class, 'update']);
+        Route::get('/mengajar/{id}/delete', [dataMengajarController::class, 'delete']);
+
+        Route::get('/jadwal', [dataJadwalController::class, 'index']);
+        Route::get('/jadwal/daftar', [dataJadwalController::class, 'daftar']);
+        Route::get('/jadwal/{id}/dataPelajaran', [dataJadwalController::class, 'dataPelajaran']);
+        Route::get('/jadwal/{id}/dataPengajar', [dataJadwalController::class, 'dataPengajar']);
+        Route::post('/jadwal/create', [dataJadwalController::class, 'create']);
+        Route::get('/jadwal/{id}/ubahJadwal', [dataJadwalController::class, 'ubahJadwal']);
+        Route::put('/jadwal/{id}/update', [dataJadwalController::class, 'update']);
+        Route::get('/jadwal/{id}/delete', [dataJadwalController::class, 'delete']);
+
+        Route::get('/nilai', [dataNilaiController::class, 'indexAdmin']);
+        // Route::get('/jadwal/daftar', [dataNilaiController::class, 'daftar']);
+        // Route::get('/jadwal/{id}/dataPelajaran', [dataNilaiController::class, 'dataPelajaran']);
+        // Route::get('/jadwal/{id}/dataPengajar', [dataNilaiController::class, 'dataPengajar']);
+        // Route::post('/jadwal/create', [dataNilaiController::class, 'create']);
+        // Route::get('/jadwal/{id}/ubahJadwal', [dataNilaiController::class, 'ubahJadwal']);
+        // Route::put('/jadwal/{id}/update', [dataNilaiController::class, 'update']);
+        // Route::get('/jadwal/{id}/delete', [dataNilaiController::class, 'delete']);
+
+        Route::get('/rapor', [dataRaporController::class, 'index']);
+        Route::get('/perkembangan', [dataPerkembanganController::class, 'index']);
+        Route::get('/prestasi', [dataPrestasiController::class, 'index']);
+        Route::get('/user', [dataUserController::class, 'index']);
+    });
+    Route::group(['middleware' => ['cek_login:Guru']], function () {
+        // Route::resource('guru', AdminController::class);
+        Route::get('/DashboardGuru', [guruController::class, 'index'])->name('dashboard');
+
+        Route::get('/biodata', [biodataController::class, 'index']);
+        Route::get('/biodata/detail', [biodataController::class, 'detail']);
+        Route::get('/guru/{id}/edit', [dataGuruController::class, 'edit']);
+        Route::put('/guru/{id}/update', [dataGuruController::class, 'update']);
+
+        Route::get('/dataMengajarGuru', [dataMengajarGuruController::class, 'index']);
+        Route::get('/jadwalMengajar/dataTable', [dataJadwalMengajarController::class, 'dataTable']);
+
+        Route::get('/jadwalMengajar', [dataJadwalMengajarController::class, 'index']);
+        Route::get('/jadwalMengajar/dataTable', [dataJadwalMengajarController::class, 'dataTable']);
+
+        Route::get('/Nilai', [dataNilaiController::class, 'indexGuru']);
+    });
+});
+
+// Route::get('/', [adminController::class, 'index']);
+// Route::get('/home', [adminController::class, 'index']);
+
+// Route::get('/home', [adminController::class, 'index']);
