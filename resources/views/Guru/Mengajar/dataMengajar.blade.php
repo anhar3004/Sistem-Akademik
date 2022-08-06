@@ -39,14 +39,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Kode Pelajaran</th>
+                                            <th>Nama Pelajaran</th>
                                             <th>Kelas</th>
-                                            <th>semester</th>
-                                            <th>Hari</th>
-                                            <th>Jam Ke</th>
-                                            <th>Jam Awal</th>
-                                            <th>Jam Akhir</th>
-                                            <th>Jumlah Menit</th>
-                                            <th>Pelajaran</th>
                                             <th>Pengajar</th>
                                         </tr>
                                     </thead>
@@ -77,7 +72,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/jadwalMengajar/dataTable",
+                    "url": "http://localhost:8000/dataMengajarGuru/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -88,35 +83,18 @@
                         }
                     },
                     {
-                        data: "kelas",
-                        order: [
-                            [null, 'asc']
-                        ]
-                    },
-                    {
-                        data: "semester"
-                    },
-                    {
-                        data: "hari"
-                    },
-                    {
-                        data: "jam_ke"
-                    },
-                    {
-                        data: "jam_awal."
-                    },
-                    {
-                        data: "jam_akhir"
-                    },
-                    {
-                        data: "jumlah_menit"
+                        data: "kd_mapel",
                     },
                     {
                         data: "nama_mapel"
                     },
                     {
+                        data: "kelas"
+                    },
+                    {
                         data: "nama_lengkap"
                     }
+
                 ]
             })
         }

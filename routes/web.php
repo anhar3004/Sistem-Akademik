@@ -128,7 +128,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/guru/{id}/update', [dataGuruController::class, 'update']);
 
         Route::get('/dataMengajarGuru', [dataMengajarGuruController::class, 'index']);
-        Route::get('/jadwalMengajar/dataTable', [dataJadwalMengajarController::class, 'dataTable']);
+        Route::get('/dataMengajarGuru/dataTable', [dataMengajarGuruController::class, 'dataTable']);
 
         Route::get('/jadwalMengajar', [dataJadwalMengajarController::class, 'index']);
         Route::get('/jadwalMengajar/dataTable', [dataJadwalMengajarController::class, 'dataTable']);
