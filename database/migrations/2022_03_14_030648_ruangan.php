@@ -15,10 +15,9 @@ class Ruangan extends Migration
     {
         Schema::create('Tb_Ruangan', function (Blueprint $table) {
             $table->id('id_ruangan');
-            $table->string('kd_ruangan');
+            $table->float('kd_ruangan',3,2);
             $table->string('ruangan');
             $table->timestamps();
-
             $table->engine ='InnoDB';
         });
     }

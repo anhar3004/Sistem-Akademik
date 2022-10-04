@@ -6,12 +6,12 @@
         <div class="nk-nav-scroll">
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="/DashboardGuru" aria-expanded="false">
+                    <a href="/guru" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/biodata" aria-expanded="false">
+                    <a href="/guru/biodata" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Biodata Guru</span>
                     </a>
                 </li>
@@ -20,8 +20,8 @@
                         <i class="icon-speedometer menu-icon"></i><span class="nav-text">Pelajaran</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/dataMengajarGuru">Data Mengajar</a></li>
-                        <li><a href="/jadwalMengajar">Jadwal Mengajar</a></li>
+                        <li><a href="/guru/mengajar">Data Mengajar</a></li>
+                        <li><a href="/guru/jadwal">Jadwal Mengajar</a></li>
                         {{-- <li><a href="/waliKelas">Data Wali Kelas</a></li> --}}
                     </ul>
                 </li>
@@ -30,7 +30,7 @@
                         <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Hasil Pembelajaran</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/Nilai">Nilai Siswa</a>
+                        <li><a href="/guru/nilai">Nilai Siswa</a>
                         </li>
                     </ul>
                 </li>

@@ -203,7 +203,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/mengajar/dataTable",
+                    "url": "http://localhost:8000/admin/mengajar/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -261,7 +261,7 @@
             var guru = $('[name=guru]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/mengajar/create',
+                url: 'http://localhost:8000/admin/mengajar/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -329,7 +329,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/mengajar/' + id + '/edit',
+                url: 'http://localhost:8000/admin/mengajar/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -355,7 +355,7 @@
             var guru = $('#modalEdit').find('[name=guru]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/mengajar/' + id + '/update',
+                url: 'http://localhost:8000/admin/mengajar/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -429,7 +429,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/mengajar/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/mengajar/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             Swal.fire(

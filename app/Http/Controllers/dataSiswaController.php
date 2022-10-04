@@ -16,21 +16,22 @@ class dataSiswaController extends Controller
 
     public function dataTable ()
     {
-        // $jadwal = \App\Models\jadwal::all();
-        // $kelas = \App\Models\kelas::all();
+
         $siswa = DB::table('tb_siswa')
         ->join('tb_kelas', 'tb_siswa.kelas', '=', 'tb_kelas.id_kelas')
         ->select('tb_siswa.*', 'tb_kelas.kelas')
         ->orderBy('nama_lengkap', 'asc')->get();
-        // dd($jadwal);
-        // return view('Admin.Jadwal.dataJadwal',['jadwal'=>$jadwal]);
+
         return response()->json($siswa);
     }
 
-
-
     public function create(Request $request)
     {
+        $user = \App\Models\User::create([
+            'username' => $request->username,
+            'password' => bcrypt('@MIESA'),
+            'level'=>'Siswa',
+        ]);
 
         \App\Models\siswa::create([
 
@@ -55,6 +56,8 @@ class dataSiswaController extends Controller
             'pekerjaan_wali' => $request->pekerjaan_wali,
             'alamat_wali' => $request->alamat_wali,
             'no_hp_wali' => $request->no_hp_wali,
+            'foto' => $request->foto,
+            'username' => $user->id_user,
         ]);
 
     }

@@ -14,10 +14,7 @@ class dataRuanganController extends Controller
 
     public function dataTable ()
     {
-        // $jadwal = \App\Models\jadwal::all();
-        $ruangan = \App\Models\ruangan::all();
-        // dd($jadwal);
-        // return view('Admin.Jadwal.dataJadwal',['jadwal'=>$jadwal]);
+        $ruangan = \App\Models\ruangan::orderBy('kd_ruangan','asc')->get();
         return response()->json($ruangan);
     }
 
@@ -28,18 +25,13 @@ class dataRuanganController extends Controller
 
             'kd_ruangan' => $request->kd_ruangan,
             'ruangan' => $request->ruangan,
-
         ]);
-
     }
 
     public function edit ($id)
     {
-
         $ruangan = \App\Models\ruangan::where('id_ruangan',$id)->get();
 
-
-    //   dd($jadwal);
       return response()->json($ruangan);
 
     }

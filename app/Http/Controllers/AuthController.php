@@ -14,22 +14,17 @@ class AuthController extends Controller
             //     //Login Success
             $user = Auth::user();
             if ($user->level == 'Admin') {
-                return redirect('/DashboardAdmin');
-                // return view('Admin.home');
+                return redirect('/admin');
             } elseif ($user->level == 'Guru') {
-                // return redirect()->intended('/guru');
-                return redirect('/DashboardGuru');
+                return redirect('/guru');
+            } elseif ($user->level == 'Siswa') {
+                return redirect('/siswa');
+            }elseif ($user->level == 'Walkes') {
+                return redirect('/wali_kelas');
+            }elseif ($user->level == 'Kepsek') {
+                return redirect('/kepsek');
             }
         }
-
-        // if ($user = Auth::user()) {
-        //     if ($user->level == 'Admin') {
-        //         return redirect('/DashboardAdmin');
-        //     } elseif ($user->level == 'Guru') {
-        //         return redirect('/DashboardGuru');
-        //     }
-        // }
-
 
         return view('Login.Login');
     }
@@ -48,11 +43,15 @@ class AuthController extends Controller
         if (Auth::attempt($kredensil)) {
             $user = Auth::user();
             if ($user->level == 'Admin') {
-                return redirect('/DashboardAdmin');
-                // return view('Admin.home');
+                return redirect('/admin');
             } elseif ($user->level == 'Guru') {
-                // return redirect()->intended('/guru');
-                return redirect('/DashboardGuru');
+                return redirect('/guru');
+            } elseif ($user->level == 'Siswa') {
+                return redirect('/siswa');
+            }elseif ($user->level == 'Walkes') {
+                return redirect('/wali_kelas');
+            }elseif ($user->level == 'Kepsek') {
+                return redirect('/kepsek');
             }
             return redirect('/login');
         }

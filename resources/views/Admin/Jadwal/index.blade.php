@@ -393,7 +393,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             event.preventDefault();
-
             dataTable();
         });
 
@@ -404,7 +403,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/jadwal/' + id + '/ubahJadwal',
+                url: 'http://localhost:8000/admin/jadwal/' + id + '/ubahJadwal',
                 type: 'GET',
 
                 success: function(data) {
@@ -450,7 +449,7 @@
             console.log(semester);
 
             $.ajax({
-                url: 'http://localhost:8000/jadwal/'+ id +'/update',
+                url: 'http://localhost:8000/admin/jadwal/'+ id +'/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -543,7 +542,7 @@
             b = $('#modalEdit').find('[name=kelas]').children("option:selected").val();
             if (id = a) {
                 $.ajax({
-                    url: 'http://localhost:8000/jadwal/' + id + '/dataPelajaran',
+                    url: 'http://localhost:8000/admin/jadwal/' + id + '/dataPelajaran',
                     type: 'GET',
                     dataType: 'json',
                     success: function(data) {
@@ -589,7 +588,7 @@
 
             if (id = a) {
                 $.ajax({
-                    url: 'http://localhost:8000/jadwal/' + id + '/dataPengajar',
+                    url: 'http://localhost:8000/admin/jadwal/' + id + '/dataPengajar',
                     type: 'GET',
                     dataType: 'json',
                     success: function(data) {
@@ -621,7 +620,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/jadwal/daftar",
+                    "url": "http://localhost:8000/admin/jadwal/daftar",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -692,7 +691,7 @@
             var jumlah_menit = $('[name=jumlah_menit]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/jadwal/create',
+                url: 'http://localhost:8000/admin/jadwal/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -780,7 +779,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/jadwal/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/jadwal/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             Swal.fire(

@@ -34,41 +34,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="col-md-12">
-                                    {{--  {{ csrf_field() }}
-                                    <form action="">
-                                        <div class="row">
-                                            <div class="form-group col-md-2 text-center">
-                                                <select id="inputState" class="form-control text-center">
-                                                    <option selected>Plih Kelas</option>
-                                                    @foreach ($kelas as $k)
-                                                        <option value="{{ $k->id_kelas }}">Kelas {{ $k->kelas }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-2 text-center">
-                                                <select id="inputState" class="form-control text-center">
-                                                    <option>Plih Semester</option>
-                                                    <option>Semester 1</option>
-                                                    <option>Semester 2</option>
-                                                </select>
-                                            </div>
 
-                                            <div class="form-group col-md-8 ">
-                                                <button type="button" class="btn btn-primary">Cetak Jadwal</button>
-                                                <button type="button" class="btn btn-primary">Lihat Jadwal</button>
-                                            </div>
-
-                                            {{-- <div class="form-group col-md-2">
-                                                <button type="button" class="btn btn-primary">Cetak Semua Data</button>
-                                            </div> --}}
-                                        {{--  </div>
-                                    </form>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <button class="btn btn-primary" id="tampil" onclick="formTambah()">Tambah Data
-                                    </button>
-                                </div>  --}}
                                 <table class="table table-striped table-bordered table-hover text-center" id="table">
                                     <thead>
                                         <tr>
@@ -89,9 +55,6 @@
                                     </tbody>
                                 </table>
 
-                                {{-- <div class="pull-right">
-                                    {{ $jadwal->links() }}
-                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -114,7 +77,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/jadwalMengajar/dataTable",
+                    "url": "http://localhost:8000/guru/jadwal/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{

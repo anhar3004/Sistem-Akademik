@@ -149,7 +149,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             event.preventDefault();
-
             dataTable();
         });
 
@@ -157,7 +156,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/ruangan/dataTable",
+                    "url": "http://localhost:8000/admin/ruangan/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -169,9 +168,6 @@
                     },
                     {
                         data: "kd_ruangan",
-                        order: [
-                            [null, 'asc']
-                        ]
                     },
                     {
                         data: "ruangan"
@@ -199,6 +195,8 @@
 
         function formTambah() {
             $("#modalTambah").modal('show');
+            $('[name=kd_ruangan]').val("");
+            $('[name=ruangan]').val("");
         }
 
         function closeModal() {
@@ -211,7 +209,7 @@
             var ruangan = $('[name=ruangan]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/ruangan/create',
+                url: 'http://localhost:8000/admin/ruangan/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -274,7 +272,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/ruangan/' + id + '/edit',
+                url: 'http://localhost:8000/admin/ruangan/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -298,7 +296,7 @@
             var ruangan = $('#modalEdit').find('[name=ruangan]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/ruangan/' + id + '/update',
+                url: 'http://localhost:8000/admin/ruangan/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -371,7 +369,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/ruangan/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/ruangan/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             Swal.fire(

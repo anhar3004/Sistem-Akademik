@@ -27,12 +27,6 @@
                                 <div class="progress-bar " style="width: 100%"></div>
                             </div>
                         </div>
-
-                        {{-- <div class="form-group col-md-12">
-                            <button type="button" class="btn btn-primary" href=""
-                                onclick="formTambah()">Tambah
-                                Guru</button>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -254,7 +248,7 @@
         function detail() {
 
             $.ajax({
-                url: 'http://localhost:8000/biodata/detail',
+                url: 'http://localhost:8000/guru/biodata/detail',
                 type: 'GET',
                 success: function(data) {
 
@@ -354,7 +348,7 @@
             $('#buttonEdit').hide();
 
             $.ajax({
-                url: 'http://localhost:8000/guru/' + id + '/edit',
+                url: 'http://localhost:8000/guru/biodata/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -409,7 +403,7 @@
 
 
             $.ajax({
-                url: 'http://localhost:8000/guru/' + id + '/update',
+                url: 'http://localhost:8000/guru/biodata/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

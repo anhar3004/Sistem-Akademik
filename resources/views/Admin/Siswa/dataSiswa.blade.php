@@ -120,7 +120,6 @@
             </div>
 
             <dir id="formTambah">
-
                 <div class="row">
                     <div class="col-md-12 ">
                         <div class="card">
@@ -147,7 +146,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-username">NIS
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="val-username" name="nis"
+                                                <input type="number" class="form-control" id="val-username" name="nis"
                                                     placeholder="">
                                             </div>
                                         </div>
@@ -155,16 +154,17 @@
                                             <label class="col-lg-4 col-form-label" for="val-email">Nama Lengkap
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="val-email" name="nama_lengkap"
-                                                    placeholder="">
+                                                <input type="text" class="form-control" id="val_text" name="nama_lengkap"
+                                                    placeholder="" onkeyup="Kapital()" onchange="Username()">
                                             </div>
+                                        </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-password">Tempat Lahir
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-password"
-                                                    name="tempat_lahir" placeholder="">
+                                                    name="tempat_lahir" onkeyup="Kapital()" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -201,7 +201,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="agama" placeholder="">
+                                                    name="agama" onkeyup="Kapital()"  placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -217,14 +217,14 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="status" placeholder="">
+                                                    name="status" onkeyup="Kapital()"  placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-suggestions">Alamat
                                             </label>
                                             <div class="col-lg-6">
-                                                <textarea class="form-control" id="val-suggestions" name="alamat" rows="5" placeholder=""></textarea>
+                                                <textarea class="form-control" id="val-suggestions" onkeyup="Kapital()" name="alamat" rows="5" placeholder=""></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -250,7 +250,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-confirm-password">DI kelas
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="val-confirm-password"
+                                                <input type="number" class="form-control" id="val-confirm-password"
                                                     name="dikelas" placeholder="">
                                             </div>
                                         </div>
@@ -259,7 +259,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="nama_ibu" placeholder="">
+                                                    name="nama_ibu"  onkeyup="Kapital()" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -267,7 +267,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="pekerjaan_ibu" placeholder="">
+                                                    name="pekerjaan_ibu" onkeyup="Kapital()"  placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -275,7 +275,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="nama_ayah" placeholder="">
+                                                    name="nama_ayah" onkeyup="Kapital()" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -284,7 +284,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="pekerjaan_ayah" placeholder="">
+                                                    name="pekerjaan_ayah" onkeyup="Kapital()" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -292,7 +292,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="nama_wali" placeholder="">
+                                                    name="nama_wali" onkeyup="Kapital()" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -301,14 +301,14 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-confirm-password"
-                                                    name="pekerjaan_wali" placeholder="">
+                                                    name="pekerjaan_wali" onkeyup="Kapital()" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-suggestions">Alamat Wali
                                             </label>
                                             <div class="col-lg-6">
-                                                <textarea class="form-control" id="val-suggestions" name="alamat_wali" rows="5" placeholder=""></textarea>
+                                                <textarea class="form-control" onkeyup="Kapital()" id="val-suggestions" name="alamat_wali" rows="5" placeholder=""></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -319,6 +319,18 @@
                                                 <input type="number" class="form-control" id="val-confirm-password"
                                                     name="no_hp_wali" placeholder="">
                                             </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-confirm-password">Foto
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="foto"
+                                                        value="">
+                                                    <label class="custom-file-label">Choose file</label>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
@@ -351,11 +363,63 @@
             dataTable();
         });
 
+        function Username() {
+
+            var nama_lengkap = $('[name=nama_lengkap]').val();
+            var random = Math.floor(Math.random() * 1000);
+            var username = nama_lengkap.substring(0, 5) + random;
+        }
+
+        function Kapital() {
+
+            var nama_lengkap = $('[name=nama_lengkap]').val();
+            var tempat_lahir = $('[name=tempat_lahir]').val();
+            var agama = $('[name=agama]').val();
+            var status = $('[name=status]').val();
+            var alamat = $('[name=alamat]').val();
+            var nama_ibu = $('[name=nama_ibu]').val();
+            var pekerjaan_ibu = $('[name=pekerjaan_ibu]').val();
+            var nama_ayah = $('[name=nama_ayah]').val();
+            var pekerjaan_ayah = $('[name=pekerjaan_ayah]').val();
+            var nama_wali = $('[name=nama_wali]').val();
+            var pekerjaan_wali = $('[name=pekerjaan_wali]').val();
+            var alamat_wali = $('[name=alamat_wali]').val();
+
+            $('[name=nama_lengkap]').val(nama_lengkap.split(" ") // Memenggal nama menggunakan spasi
+                .map(nama =>
+                    nama.charAt(0).toUpperCase() +
+                    nama.slice(1)) // Ganti huruf besar kata-kata pertama
+                .join(" "));
+            $('[name=tempat_lahir]').val(tempat_lahir.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=agama]').val(agama.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=status]').val(status.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=alamat]').val(alamat.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=nama_ibu]').val(nama_ibu.split(" ") // Memenggal nama menggunakan spasi
+            .map(nama =>
+                nama.charAt(0).toUpperCase() +
+                nama.slice(1)) // Ganti huruf besar kata-kata pertama
+            .join(" "));
+            $('[name=pekerjaan_ibu]').val(pekerjaan_ibu.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=nama_ayah]').val(nama_ayah.split(" ") // Memenggal nama menggunakan spasi
+            .map(nama =>
+                nama.charAt(0).toUpperCase() +
+                nama.slice(1)) // Ganti huruf besar kata-kata pertama
+            .join(" "));
+            $('[name=pekerjaan_ayah]').val(pekerjaan_ayah.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=nama_wali]').val(nama_wali.split(" ") // Memenggal nama menggunakan spasi
+            .map(nama =>
+                nama.charAt(0).toUpperCase() +
+                nama.slice(1)) // Ganti huruf besar kata-kata pertama
+            .join(" "));
+            $('[name=pekerjaan_wali]').val(pekerjaan_wali.replace(/^\w/, (c) => c.toUpperCase()));
+            $('[name=alamat_wali]').val(alamat_wali.replace(/^\w/, (c) => c.toUpperCase()));
+        }
+
         function dataTable() {
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/siswa/dataTable",
+                    "url": "http://localhost:8000/admin/siswa/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -459,7 +523,6 @@
             $('#content').show();
         }
 
-
         function create() {
             var kelas = $('[name=kelas]').val();
             var nis = $('[name=nis]').val();
@@ -482,9 +545,11 @@
             var pekerjaan_wali = $('[name=pekerjaan_wali]').val();
             var alamat_wali = $('[name=alamat_wali]').val();
             var no_hp_wali = $('[name=no_hp_wali]').val();
+            var foto = $('[name=foto]').val();
+            var username = nama_lengkap.split(' ', 1)+ Math.floor(Math.random() * 1000);
 
             $.ajax({
-                url: 'http://localhost:8000/siswa/create',
+                url: 'http://localhost:8000/admin/siswa/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -511,10 +576,10 @@
                     pekerjaan_wali: pekerjaan_wali,
                     alamat_wali: alamat_wali,
                     no_hp_wali: no_hp_wali,
+                    username: username,
+                    foto: foto,
                 },
                 success: function(data) {
-
-
                     toastr.success("Data Berhasil DI Tambahkan...!!!", "Sucesss", {
                         positionClass: "toast-bottom-right",
                         timeOut: 5e3,
@@ -563,7 +628,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/siswa/' + id + '/edit',
+                url: 'http://localhost:8000/admin/siswa/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -653,7 +718,7 @@
             var no_hp_wali = $('[name=no_hp_wali]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/siswa/' + id + '/update',
+                url: 'http://localhost:8000/admin/siswa/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -743,7 +808,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/siswa/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/siswa/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             $('#table').DataTable().destroy();
@@ -763,9 +828,8 @@
 
         function detail(id) {
 
-
             $.ajax({
-                url: 'http://localhost:8000/siswa/' + id + '/detail',
+                url: 'http://localhost:8000/admin/siswa/' + id + '/detail',
                 type: 'GET',
                 success: function(data) {
                     $('#detailSiswa').show();

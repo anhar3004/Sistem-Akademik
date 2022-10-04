@@ -178,7 +178,7 @@
 
         function noUrut() {
             $.ajax({
-                url: 'http://localhost:8000/pelajaran/noUrut',
+                url: 'http://localhost:8000/admin/pelajaran/noUrut',
                 type: 'GET',
 
                 success: function(data) {
@@ -191,7 +191,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/pelajaran/dataTable",
+                    "url": "http://localhost:8000/admin/pelajaran/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -251,7 +251,7 @@
             var kkm = $('[name=kkm]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/pelajaran/create',
+                url: 'http://localhost:8000/admin/pelajaran/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -321,7 +321,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/pelajaran/' + id + '/edit',
+                url: 'http://localhost:8000/admin/pelajaran/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -350,7 +350,7 @@
             var kkm = $('#modalEdit').find('[name=kkm]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/pelajaran/' + id + '/update',
+                url: 'http://localhost:8000/admin/pelajaran/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -425,7 +425,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/pelajaran/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/pelajaran/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             Swal.fire(

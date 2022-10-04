@@ -6,12 +6,12 @@
         <div class="nk-nav-scroll">
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="/Dashboard Admin" aria-expanded="false">
+                    <a href="/admin/" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/periode" aria-expanded="false">
+                    <a href="/admin/periode" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Periode</span>
                     </a>
                 </li>
@@ -20,18 +20,18 @@
                         <i class="icon-speedometer menu-icon"></i><span class="nav-text">Kelas</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/ruangan">Data Ruangan</a></li>
-                        <li><a href="/kelas">Data Kelas</a></li>
+                        <li><a href="/admin/ruangan">Data Ruangan</a></li>
+                        <li><a href="/admin/kelas">Data Kelas</a></li>
                         {{-- <li><a href="/waliKelas">Data Wali Kelas</a></li> --}}
                     </ul>
                 </li>
                 <li>
-                    <a href="/siswa" aria-expanded="false">
+                    <a href="/admin/siswa" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Siswa</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/guru" aria-expanded="false">
+                    <a href="/admin/guru" aria-expanded="false">
                         <i class="icon-badge menu-icon"></i><span class="nav-text">Guru</span>
                     </a>
                 </li>
@@ -40,9 +40,9 @@
                         <i class="icon-speedometer menu-icon"></i><span class="nav-text">Pelajaran</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/pelajaran">Data Pelajaran</a></li>
-                        <li><a href="/mengajar">Data Mengajar</a></li>
-                        <li><a href="/jadwal">Data Jadwal Pelajaran</a></li>
+                        <li><a href="/admin/pelajaran">Data Pelajaran</a></li>
+                        <li><a href="/admin/mengajar">Data Mengajar</a></li>
+                        <li><a href="/admin/jadwal">Data Jadwal Pelajaran</a></li>
                     </ul>
                 </li>
                 <li>
@@ -50,20 +50,20 @@
                         <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Hasil Pembelajaran</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/absensi">Absensi Siswa</a>
+                        <li><a href="/admin/absensi">Absensi Siswa</a>
                         </li>
-                        <li><a href="/nilai">Nilai Siswa</a>
+                        <li><a href="/admin/nilai">Nilai Siswa</a>
                         </li>
-                        <li><a href="/rapor">Rapor Siswa</a>
+                        <li><a href="/admin/rapor">Rapor Siswa</a>
                         </li>
-                        <li><a href="/perkembangan">Perkembangan Siswa</a>
+                        <li><a href="/admin/perkembangan">Perkembangan Siswa</a>
                         </li>
-                        <li><a href="/prestasi">Prestasi Belajar Siswa</a>
+                        <li><a href="/admin/prestasi">Prestasi Belajar Siswa</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/user" aria-expanded="false">
+                    <a href="/admin/user" aria-expanded="false">
                         <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
                     </a>
                 </li>

@@ -127,7 +127,7 @@
                                             </div>
                                             <div class="col-md-5 mx-auto">
                                                 <div class=" input-group text-center">
-                                                    <input name="periode_akhir" type="text" class="form-control text-center"
+                                                    <input name="periode_akhir" type="number" class="form-control text-center"
                                                         name="end" value="">
                                                 </div>
                                             </div>
@@ -155,7 +155,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             event.preventDefault();
-
             dataTable();
         });
 
@@ -163,7 +162,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/periode/dataTable",
+                    "url": "http://localhost:8000/admin/periode/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -217,7 +216,7 @@
             var periode_akhir = $('[name=periode_akhir]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/periode/create',
+                url: 'http://localhost:8000/admin/periode/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -278,15 +277,13 @@
         }
 
         function formEdit(id) {
-
+console.log(id);
             $.ajax({
-                url: 'http://localhost:8000/periode/' + id + '/edit',
+                url: 'http://localhost:8000/admin/periode/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
                     $("#modalEdit").modal('show');
-                    {{-- $("#modal-title").contents().last()[0].textContent='Ubah Jadwal Pelajaran'; --}}
-
                     $.each(data, function(key, value) {
                         id_periode = data[key].id_periode;
                         periode_awal = data[key].periode_awal;
@@ -304,7 +301,7 @@
             var periode_akhir = $('#modalEdit').find('[name=periode_akhir]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/periode/'+ id +'/update',
+                url: 'http://localhost:8000/admin/periode/'+ id +'/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -377,7 +374,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/periode/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/periode/' + id + '/delete',
                         type: 'get',
                         success: function(data) {
                             Swal.fire(

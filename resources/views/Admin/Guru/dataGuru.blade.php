@@ -85,22 +85,6 @@
                                                 placeholder="" onkeyup="Kapitalis()" onchange="Username()">
                                         </div>
                                     </div>
-                                    {{-- <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-email">Nama Belakang
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="val_text" name="nama_belakang"
-                                                placeholder="" onkeyup="Kapitalis()" on>
-                                        </div>
-                                    </div> --}}
-                                    {{-- <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-email">Username
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="val-email" name="username"
-                                                placeholder="" readonly>
-                                        </div>
-                                    </div> --}}
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-form-label" for="val-password">Tempat Lahir
                                         </label>
@@ -225,8 +209,6 @@
             var nama_lengkap = $('[name=nama_lengkap]').val();
             var random = Math.floor(Math.random() * 1000);
             var username = nama_lengkap.substring(0, 5) + random;
-
-
         }
 
         function Kapitalis() {
@@ -253,7 +235,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/guru/dataTable",
+                    "url": "http://localhost:8000/admin/guru/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -336,8 +318,7 @@
 
         function back() {
             $('[name=nip]').val("");
-            $('[name=nama_depan]').val("");
-            $('[name=nama_belakang]').val("");
+            $('[name=nama_lengkap]').val("");
             $('[name=username]').val("");
             $('[name=tempat_lahir]').val("");
             $('[name=tanggal_lahir]').val("");
@@ -350,7 +331,6 @@
             $('#formTambah').hide();
             $('#content').show();
         }
-
 
         function create() {
 
@@ -366,7 +346,7 @@
             var email = $('[name=email]').val();
             var foto = $('[name=foto]').val();
             $.ajax({
-                url: 'http://localhost:8000/guru/create',
+                url: 'http://localhost:8000/admin/guru/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -385,8 +365,6 @@
                     foto: foto,
                 },
                 success: function(data) {
-
-
                     toastr.success("Data Berhasil DI Tambahkan...!!!", "Sucesss", {
                         positionClass: "toast-bottom-right",
                         timeOut: 5e3,
@@ -435,7 +413,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/guru/' + id + '/edit',
+                url: 'http://localhost:8000/admin/guru/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -493,7 +471,7 @@
 
 
             $.ajax({
-                url: 'http://localhost:8000/guru/' + id + '/update',
+                url: 'http://localhost:8000/admin/guru/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -570,7 +548,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/guru/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/guru/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             $('#table').DataTable().destroy();
@@ -591,7 +569,7 @@
         function detail(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/guru/' + id + '/detail',
+                url: 'http://localhost:8000/admin/guru/' + id + '/detail',
                 type: 'GET',
                 success: function(data) {
                     $('#detailGuru').show();

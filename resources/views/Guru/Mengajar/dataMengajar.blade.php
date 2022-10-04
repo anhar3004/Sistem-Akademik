@@ -72,7 +72,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/dataMengajarGuru/dataTable",
+                    "url": "http://localhost:8000/guru/mengajar/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{

@@ -36,9 +36,12 @@ class Siswa extends Migration
             $table->string('pekerjaan_wali')->nullable();
             $table->text('alamat_wali')->nullable();
             $table->bigInteger('no_hp_wali')->nullable();
+            $table->string('foto')->nullable();
+            $table->foreignId('username');
             $table->timestamps();
 
             $table->foreign('kelas')->references('id_kelas')->on('Tb_Kelas');
+            $table->foreign('username')->references('id_user')->on('Tb_User');
             $table->engine ='InnoDB';
         });
     }

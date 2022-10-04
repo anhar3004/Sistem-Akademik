@@ -220,7 +220,7 @@
             $('#table').DataTable({
 
                 "ajax": {
-                    "url": "http://localhost:8000/kelas/dataTable",
+                    "url": "http://localhost:8000/admin/kelas/dataTable",
                     "dataSrc": ""
                 },
                 "columns": [{
@@ -290,7 +290,7 @@
             var walkes = $('[name=walkes]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/kelas/create',
+                url: 'http://localhost:8000/admin/kelas/create',
                 type: 'post',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -357,7 +357,7 @@
         function formEdit(id) {
 
             $.ajax({
-                url: 'http://localhost:8000/kelas/' + id + '/edit',
+                url: 'http://localhost:8000/admin/kelas/' + id + '/edit',
                 type: 'GET',
 
                 success: function(data) {
@@ -384,7 +384,7 @@
             var walkes = $('#modalEdit').find('[name=walkes]').val();
 
             $.ajax({
-                url: 'http://localhost:8000/kelas/' + id + '/update',
+                url: 'http://localhost:8000/admin/kelas/' + id + '/update',
                 type: 'put',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -458,7 +458,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: 'http://localhost:8000/kelas/' + id + '/delete',
+                        url: 'http://localhost:8000/admin/kelas/' + id + '/delete',
                         type: 'GET',
                         success: function(data) {
                             Swal.fire(
@@ -478,7 +478,7 @@
         function daftarSiswa(id) {
             $('#daftarSiswa').find('tbody').empty();
             $.ajax({
-                url: 'http://localhost:8000/kelas/' + id + '/daftarSiswa',
+                url: 'http://localhost:8000/admin/kelas/' + id + '/daftarSiswa',
                 type: 'GET',
                 success: function(data) {
                     $('#daftarSiswa').show();

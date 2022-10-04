@@ -10,11 +10,6 @@ class dataNilaiController extends Controller
     {
         return view('Admin.Nilai.dataNilai');
     }
-
-    public function indexGuru ()
-    {
-        return view('Guru.Nilai.dataNilai');
-    }
 }
 
 
